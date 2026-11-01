@@ -81,14 +81,14 @@ def page(title: str, body: str) -> str:
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
 <style>{STYLE}</style></head>
 <body><main>
-<div class="nav"><a href="/">สายเป่า</a><a href="/privacy/">นโยบายความเป็นส่วนตัว</a><a href="/terms/">ข้อกำหนดการใช้งาน</a></div>
+<div class="nav"><a href="/">สายเป่า</a><a href="/privacy/">นโยบายความเป็นส่วนตัว</a><a href="/terms/">ข้อกำหนดการใช้งาน</a><a href="/delete-account/">ลบบัญชี</a></div>
 {body}
 <footer>ติดต่อ <a href="mailto:support@sai-pao.com">support@sai-pao.com</a></footer>
 </main></body></html>
 """
 
 
-for slug, src in (("privacy", "privacy-th.md"), ("terms", "terms-th.md")):
+for slug, src in (("privacy", "privacy-th.md"), ("terms", "terms-th.md"), ("delete-account", "delete-account-th.md")):
     title, body = render((APP / "docs/legal" / src).read_text(encoding="utf-8"))
     (OUT / slug).mkdir(exist_ok=True)
     (OUT / slug / "index.html").write_text(page(title, body), encoding="utf-8")
